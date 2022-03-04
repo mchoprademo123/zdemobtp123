@@ -1,0 +1,57 @@
+@Metadata.layer: #CORE
+annotate view ZCDS_VAS_PROCTM1 with
+{
+  @UI.facet: [{ id: 'vashours',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                position: 10,
+                label: 'VAS Hours'
+               }]
+  @UI:{ selectionField:[ { position:10 } ],
+  lineItem: [ { position: 10, importance: #HIGH } ],
+  identification: [ { position: 10, label: 'Plant DC' } ]
+  }
+  @Consumption.filter:{ mandatory:true }
+  @Search.fuzzinessThreshold: 1
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [
+  { entity:  { name:    'ZISD_PlantStdVH',
+               element: 'Plant' }
+  }]
+  @EndUserText.label: 'Plant DC'
+  Werks;
+
+  @UI.lineItem: [ { position:20, importance: #HIGH } ]
+  @UI.identification: [ { position: 20, label: 'VAS Service Type code' } ]
+  @EndUserText.label: 'VAS Service Type code'
+  @Search.defaultSearchElement: true
+  FshVasSer;
+
+  @UI.lineItem: [ { position:30, importance: #HIGH } ]
+  @UI.identification: [ { position: 30, label: 'VAS Sub Service' } ]
+  @Search.defaultSearchElement: true
+    @EndUserText.label: 'VAS Sub Service'
+  //  @Consumption.valueHelpDefinition: [
+  //      { entity:  { name:    'ZISD_VASSUBSRVCVH',
+  //                   element: 'VASSubServices' },
+  //                   additionalBinding: [{ localElement: 'fsh_vas_ser',
+  //                   element: 'VASServiceTypes' }]
+  //      }]
+
+
+  FshVasSubSer;
+
+
+  @UI.lineItem: [ { position:50, importance: #HIGH } ]
+  @UI.identification: [ { position: 50, label: 'VAS Processing time' } ]
+  @Search.defaultSearchElement: true
+@EndUserText.label: 'VAS Processing time'
+  VasProcTime;
+
+  @UI.lineItem: [ { position:60, importance: #HIGH } ]
+  @UI.identification: [ { position: 60, label: 'VAS Carton level flag' } ]
+  @EndUserText.label: 'VAS Carton level flag'
+  @Search.defaultSearchElement: true
+  CrtnVasFl;
+
+}
