@@ -1,0 +1,25 @@
+managed implementation in class zbp_isd_vas_proctm unique;
+strict;
+
+define behavior for ZISD_VAS_PROCTM alias Vas
+persistent table ztsd_vas_proctm
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory) Werks;
+  validation validatePlant on save { field Werks; create; }
+
+  mapping for ztsd_vas_proctm
+  {
+    Werks = werks;
+    FshVasSer = fsh_vas_ser;
+    FshVasSubSer = fsh_vas_sub_ser;
+    VasProcTime = vas_proc_time;
+    CrtnVasFl = crtn_vas_fl;
+  }
+}

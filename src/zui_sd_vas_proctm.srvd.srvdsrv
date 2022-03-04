@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for VAS'
+define service ZUI_SD_VAS_PROCTM {
+  expose ZCDS_VAS_PROCTM1;
+}
